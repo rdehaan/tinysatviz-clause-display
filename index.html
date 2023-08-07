@@ -1,0 +1,110 @@
+<!--
+This file is released under the MIT license.
+See LICENSE.md.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Tinysat Viz: Clause Display</title>
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/display.css">
+</head>
+
+<body>
+
+  <main class="page-content" aria-label="Content">
+    <div class="wrapper">
+      <article class="post">
+
+        <header class="post-header">
+          <h1 class="post-title">Tinysat Viz: Clause Display</h1>
+        </header>
+
+        <div class="post-content">
+          <div class="center">
+
+            <p>
+              <b>Clause display:</b>
+            </p>
+
+            <div id="formula"></div>
+
+            <!-- <input type="button" id="run" value="Reset" onclick="resetAssignment()"/> -->
+
+            <div>&nbsp;</div>
+
+            <p>
+              <b>Control:</b>
+            </p>
+
+            <ul class="hlist">
+              <li>
+                <i>Speed:</i>
+              </li>
+              <li>
+              <select id="speed">
+                <option value="2.0">Slow</option>
+                <option value="1.0" selected>Normal</option>
+                <option value="0.5">Fast</option>
+                <option value="0.25">Very fast</option>
+                <option value="0.1">Ultra fast</option>
+                <option value="0">Instant</option>
+              </select>
+              </li>
+            </ul>
+
+            <input type="button" id="btn_solve" value="&#x25ba; Load & run!" onclick="solve()"/>&nbsp;
+            <input type="button" id="btn_pause" value="Pause" onclick="do_pause()" disabled/>&nbsp;
+            <input type="button" id="btn_resume" value="Resume" onclick="do_resume()" disabled/>&nbsp;
+            <input type="button" id="btn_abort" value="Abort" onclick="do_abort()" disabled/>
+
+            <div>&nbsp;</div>
+
+            <div>
+              <b>Output:</b>
+            </div>
+
+            <pre id="output" class="code"></pre>
+
+            <div>&nbsp;</div>
+
+            <div>
+              <b>CNF:</b>
+            </div>
+
+            <pre id="input">
+c this is a comment
+p cnf 3 8
+1 2 3 0
+1 2 -3 0
+1 -2 3 0
+1 -2 -3 0
+-1 2 3 0
+-1 2 -3 0
+-1 -2 3 0
+-1 -2 -3 0</pre>
+
+          <input type="button" id="run" value="Load" onclick="loadInput()"/>
+
+          </div>
+        </div>
+
+      </article>
+    </div>
+  </main>
+
+  <script type="text/javascript" src="js/ace.js" charset="utf-8"></script>
+  <script type="text/javascript" src="js/tinysat_core.js" charset="utf-8"></script>
+  <script type="text/javascript" src="js/tinysat_browser.js" charset="utf-8"></script>
+  <script type="text/javascript" src="js/interface.js"></script>
+
+</body>
+
+</html>
